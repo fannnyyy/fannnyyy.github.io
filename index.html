@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carnet de croquis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fond: #f6f1ea;
+      --texte: #2b2622;
+      --doux: #7a6f66;
+      --carte: #ffffff;
+      --accent: #b5532f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--fond);
+      color: var(--texte);
+      line-height: 1.5;
+      padding: 40px 16px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+    }
+
+    header p {
+      color: var(--doux);
+      font-style: italic;
+      margin-top: 6px;
+    }
+
+    .oeuvre {
+      max-width: 1100px;
+      margin: 0 auto 64px;
+    }
+
+    /* Grandes parties : BD, Animation 2D, Croquis */
+    .partie {
+      max-width: 1100px;
+      margin: 0 auto 96px;
+    }
+
+    .partie h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+    }
+
+    .partie .sous-titre {
+      color: var(--doux);
+      font-style: italic;
+      margin: -24px 0 32px;
+    }
+
+    /* Titre de chaque œuvre */
+    .oeuvre h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+
+    .oeuvre .infos {
+      color: var(--doux);
+      margin-bottom: 20px;
+    }
+
+    .paire {
+      display: grid;
+      grid-template-columns: 1fr 1fr;   /* dessin à gauche, photo à droite */
+      gap: 24px;
+    }
+
+    figure {
+      background: var(--carte);
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    figcaption {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+    }
+
+    /* Cadre horizontal pour les œuvres dessinées en largeur */
+    .paysage figure img { aspect-ratio: 4 / 3; }
+
+    /* Animation 2D */
+    .animation figure {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .animation video {
+      display: block;
+      width: 100%;
+      border-radius: 3px;
+      background: #000;
+    }
+
+    /* BD : les planches gardent leur format d'origine, sans être rognées */
+    .bd figure img {
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+
+    .bd a { display: block; cursor: zoom-in; }
+
+    /* Sur téléphone : le dessin au-dessus, la photo en dessous */
+    @media (max-width: 700px) {
+      .paire { grid-template-columns: 1fr; }
+      header h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Portfolio</h1>
+  </header>
+
+  <section class="partie">
+    <h2>BD</h2>
+
+    <div class="oeuvre bd">
+      <figure>
+        <a href="images/bd_a_lire_debout.jpg" target="_blank">
+          <img src="images/bd_a_lire_debout.jpg" alt="Les deux planches de la BD À lire debout">
+        </a>
+      </figure>
+    </div>
+  </section>
+
+  <section class="partie">
+    <h2>Animation 2D</h2>
+
+    <div class="oeuvre animation">
+      <figure>
+        <video src="images/PGMonstre_FANNY_v01.MP4" controls loop playsinline preload="metadata">
+          Ton navigateur ne peut pas lire cette vidéo.
+        </video>
+      </figure>
+    </div>
+  </section>
+
+  <section class="partie">
+    <h2>Croquis de 20 min</h2>
+    <div class="oeuvre">
+      <h3>Lion de Mari, début du IIe millénaire av. J.-C</h3>
+      <div class="paire paysage">
+        <figure>
+          <img src="images/image00044_dessin.jpg" alt="Dessin du lion en bronze">
+          <figcaption>11/04/2025</figcaption>
+        </figure>
+        <figure>
+          <img src="images/image00024_photo.jpg" alt="Photo du lion en bronze">
+        </figure>
+      </div>
+    </div>
+
+    <div class="oeuvre">
+      <h3>L’Amour prenant un papillon, Antoine-Denis Chaudet, 1817</h3>
+      <div class="paire">
+        <figure>
+          <img src="images/image00039_dessin.jpg" alt="Dessin de L'Amour de Chaudet">
+          <figcaption>17/05/2025</figcaption>
+        </figure>
+        <figure>
+          <img src="images/image00018.JPG" alt="Photo de la statue L'Amour de Chaudet">
+        </figure>
+      </div>
+    </div>
+
+    <div class="oeuvre">
+      <h3>Enfants à la chèvre, Sarazin, 1640</h3>
+      <div class="paire">
+        <figure>
+          <img src="images/image00038_dessin.jpg" alt="Dessin de la statue des enfants à la chèvre">
+          <figcaption>12/09/2025</figcaption>
+        </figure>
+        <figure>
+          <img src="images/image00019.jpg" alt="Photo de la statue des enfants à la chèvre">
+        </figure>
+      </div>
+    </div>
+
+    <div class="oeuvre">
+      <h3>L’Amour menaçant, Étienne-Maurice Falconet, 1757</h3>
+      <div class="paire">
+        <figure>
+          <img src="images/amour_menacant_dessin.jpg" alt="Dessin de L'Amour menaçant de Falconet">
+          <figcaption>17/01/2026</figcaption>
+        </figure>
+        <figure>
+          <img src="images/amour_menacant_photo.jpg" alt="Photo de la statue L'Amour menaçant de Falconet">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
