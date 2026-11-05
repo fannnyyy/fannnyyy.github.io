@@ -32,15 +32,31 @@
     }
 
     header h1 {
-      font-size: 2.4rem;
-      font-weight: normal;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.8rem;
+      font-weight: 600;
       letter-spacing: 0.04em;
     }
 
+    /* Ton nom, sous « Portfolio » */
     header p {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 300;
       color: var(--doux);
-      font-style: italic;
-      margin-top: 6px;
+      margin-top: 4px;
+    }
+
+    /* Petit avatar à côté du nom */
+    .nom {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      height: 36px;
+      width: auto;
     }
 
     .oeuvre {
@@ -136,6 +152,37 @@
 
     .bd a { display: block; cursor: zoom-in; }
 
+    /* Menu horizontal */
+    html { scroll-behavior: smooth; }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 32px;
+      margin: -24px auto 32px;
+    }
+
+    .menu a {
+      color: var(--texte);
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .menu a:hover,
+    .menu a:focus-visible {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* Laisse un peu d'air au-dessus du titre quand on arrive par le menu */
+    .partie { scroll-margin-top: 24px; }
+
     /* Sur téléphone : le dessin au-dessus, la photo en dessous */
     @media (max-width: 700px) {
       .paire { grid-template-columns: 1fr; }
@@ -147,10 +194,19 @@
 
   <header>
     <h1>Portfolio</h1>
-    <h2>Fanny Badoules</h2>
+    <p class="nom">
+      Fanny Badoules
+      <img src="images/avatar.png" alt="" class="avatar">
+    </p>
   </header>
 
-  <section class="partie">
+  <nav class="menu">
+    <a href="#bd">BD</a>
+    <a href="#animation">Animation 2D</a>
+    <a href="#croquis">Croquis</a>
+  </nav>
+
+  <section class="partie" id="bd">
     <h2>BD</h2>
 
     <div class="oeuvre bd">
@@ -162,7 +218,7 @@
     </div>
   </section>
 
-  <section class="partie">
+  <section class="partie" id="animation">
     <h2>Animation 2D</h2>
 
     <div class="oeuvre animation">
@@ -174,7 +230,7 @@
     </div>
   </section>
 
-  <section class="partie">
+  <section class="partie" id="croquis">
     <h2>Croquis de 20 min</h2>
     <div class="oeuvre">
       <h3>Lion de Mari, début du IIe millénaire av. J.-C</h3>
